@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pookie Birthday Slideshow for Mayank! 💖</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffb6c1, #ffe4e1, #f0e68c);
+            color: #d2691e;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            position: relative;
+            min-height: 100vh; /* Full page height */
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            overflow-y: auto; /* Scroll if needed, but texts are designed to fit */
+        }
+        .slide.active { display: block; }
+        h1 { color: #ff1493; font-size: 2.5em; text-shadow: 2px 2px #fff; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+        nav { margin-bottom: 20px; }
+        button { background: #ff69b4; color: white; border: none; padding: 10px 20px; font-size: 1.2em; border-radius: 10px; cursor: pointer; margin: 10px; transition: background 0.3s; }
+        button:hover { background: #ff1493; }
+        .hearts { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        .heart { position: absolute; font-size: 2em; color: #ff69b4; animation: fall 6s linear infinite; } /* Slower, straighter fall */
+        @keyframes fall { from { transform: translateY(-10vh) rotate(0deg); } to { transform: translateY(110vh) rotate(10deg); } } /* Perfect straight-ish fall with slight tilt */
+        img { border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); max-width: 100%; margin: 20px 0; }
+        input, textarea { width: 80%; padding: 10px; margin: 10px; border-radius: 10px; border: 1px solid #ffb6c1; }
+        .quiz-result, .wish-result { margin-top: 20px; font-weight: bold; }
+        p, li { font-size: 1.2em; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <!-- Navigation Buttons -->
+    <nav>
+        <button onclick="prevSlide()">Prev</button>
+        <button onclick="nextSlide()">Next</button>
+    </nav>
+
+    <!-- Slide 1: Home -->
+    <div class="slide active" id="slide1">
+        <h1>Happy Birthday, My Pookie Bestie Mayank! 💖🎂</h1>
+        <p>From Manu to Mayank: Oh my pookie bear, where do I even begin? You're not just my best friend—you're the sunshine that lights up my darkest days, the laughter that echoes in my heart, and the cuddly teddy bear I wish I could hug every single moment. On this special birthday, I want you to know how much you mean to me. We've shared countless adventures, from silly inside jokes that only we get to epic dance-offs in the living room. Remember that time we stayed up all night talking about our dreams? You inspire me to be braver, kinder, and more fun-loving. I hope your birthday is filled with all the magic you deserve: a mountain of your favorite chocolates, surprise calls from loved ones, and maybe even a spontaneous road trip if the stars align. You're turning another year wiser, but in my eyes, you'll always be that goofy kid who makes me smile like no one else. Wishing you endless joy, prosperity, and love that wraps around you like a warm blanket. You're my favorite person in the whole wide world, and I can't wait to celebrate many more birthdays with you. Here's to you, my pookie bestie—may this year bring you closer to all your heart's desires. Muah! 😘❤️</p>
+        <img src="https://via.placeholder.com/300x200?text=Cute+Birthday+Cake" alt="Cute Birthday Cake">
+        <p>💕💕💕 Sending you virtual hugs, kisses, and a lifetime of pookie love! If I could, I'd bake you a cake as big as the moon and decorate it with all our favorite memories. Happy birthday, Mayank—you're irreplaceable! 💕💕💕</p>
+    </div>
+
+    <!-- Slide 2: About Manu -->
+    <div class="slide" id="slide2">
+        <h1>About Manu 💖</h1>
+        <img src="https://via.placeholder.com/200x200?text=Manu+Smiling" alt="Manu Smiling" style="float: left; margin-right: 20px;">
+        <p>Hi Mayank, my dearest pookie bestie! I'm Manu, and if I had to describe myself in one word, it'd be 'adventurous'—but with a side of cuddly chaos. Born and raised in a world of colors and dreams, I've always been the type to turn ordinary days into extraordinary stories. My favorite color? Pink, of course—it's the hue of love, cotton candy, and all things sweet, just like our friendship. I love puppies because they're fluffy bundles of joy that remind me of you: loyal, playful, and always ready for a belly rub. Fun facts about me? Well, my absolute favorite food is chocolate cake, especially the kind with extra frosting that we can share (or not share, depending on the day). I can dance like a pro in my living room, but only when no one's watching—think Bollywood moves mixed with awkward flailing. I've traveled to a few places, but my favorite 'trip' is the one inside my imagination, where we can be superheroes saving the world from boredom. I think you're the coolest person ever because you get my weird sense of humor and always know how to make me feel special. Did you know I once tried to bake cookies from scratch and ended up with a kitchen disaster that looked like a modern art piece? That's the kind of fun we have together. I collect little trinkets that remind me of happy moments, and guess what? You have a whole shelf dedicated to you. Can't wait to celebrate with you—let's make this birthday unforgettable! What about you? Slide to the quiz to test how well you know your pookie! 😘</p>
+    </div>
+
+    <!-- Slide 3: Memories -->
+    <div class="slide" id="slide3">
+        <h1>Our Pookie Memories 💕</h1>
+        <div style="margin-bottom: 40px;">
+            <h2>That Time We Ate Ice Cream All Day! 🍨</h2>
+            <img src="https://via.placeholder.com/300x200?text=Ice+Cream+Memory" alt="Ice Cream Memory">
+            <p>Oh, Mayank, do you remember that glorious summer day when we decided to turn 'snack time' into an all-day feast? It started innocently enough with a single scoop of vanilla, but before we knew it, we were hitting up every ice cream parlor in town. We laughed until our sides hurt, sharing stories about our wildest dreams while the sun dipped low. You got chocolate all over your face, and I teased you mercilessly, but secretly, I loved how carefree you looked. That day taught me that the best memories are made in the simplest moments—sticky fingers, full bellies, and a bond that feels unbreakable. It was pure pookie perfection, and I cherish it like a treasure. You're my favorite memory-maker, and I hope we create a thousand more just like it. 😍</p>
+        </div>
+        <div style="margin-bottom: 40px;">
+            <h2>Our First Movie Night! 🍿</h2>
+            <img src="https://via.placeholder.com/300x200?text=Movie+Night" alt="Movie Night">
+            <p>Picture this: blankets piled high, popcorn flying everywhere, and us cuddled up on the couch like two peas in a pod. We picked a rom-com that had us in stitches, but the real highlight was the popcorn fight that turned into a full-blown pillow war. You 'won' by tickling me until I surrendered, and we ended up watching the credits in comfortable silence, just enjoying each other's company. That night, I realized how lucky I am to have a friend who turns ordinary evenings into magical escapes. We've had so many movie nights since, but that first one holds a special place in my heart. It was the start of our tradition, filled with laughter, cuddles, and zero regrets. Can't wait for the next one—popcorn on me! Pure pookie bliss. 💕</p>
+        </div>
+        <div>
+            <h2>Bonus Memory: Our Spontaneous Park Picnic! 🌳</h2>
+            <img src="https://via.placeholder.com/300x200?text=Park+Picnic" alt="Park Picnic">
+            <p>And let's not forget that impromptu picnic in the park when the weather was just right. We packed sandwiches, fruit, and way too many snacks, then spent hours people-watching and sharing secrets under the shade of an old oak tree. You told me about your fears and hopes, and I felt closer to you than ever. Birds chirped, the breeze was gentle, and for a moment, the world felt perfect. It was a reminder that life's best adventures don't need planning—they just need a friend like you. These memories are the threads that weave our friendship, and I'm grateful for every single one. You're my pookie forever! ❤️</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: Pookie Quiz -->
+    <div class="slide" id="slide4">
+        <h1>Pookie Quiz: How Well Do You Know Manu? 🧠💖</h1>
+        <p>Alright, Mayank, my pookie bestie, let's see if you really know me! I've added a few more questions to make it fun and challenging. Answer them honestly, and remember, there's no wrong answer when it comes to our friendship. These questions are based on all the little things we've shared over the years—the inside jokes, the late-night talks, and the silly adventures. Take your time, think about our memories, and let's see how pookie-smart you are! If you get them all right, I'll owe you a real-life treat. Ready? Let's dive in!</p>
+        <p>1. What’s Manu’s favorite color? <input type="text" id="q1" placeholder="Your guess..."></p>
+        <p>2. What’s our favorite shared activity? <input type="text" id="q2" placeholder="Your guess..."></p>
+        <p>3. What's the name of the first movie we watched together? <input type="text" id="q3" placeholder="Your guess..."></p>
+        <p>4. If Manu could have any superpower, what would it be? <input type="text" id="q4" placeholder="Your guess..."></p>
+        <button onclick="checkQuiz()">Submit Answers! 🎉</button>
+        <p class="quiz-result" id="quizResult"></p>
+        <p>Hint: Think about our ice cream days, movie nights, and all the dreams we've shared. You're a true pookie expert if you ace this! 💕</p>
+    </div>
+
+    <!-- Slide 5: Wish Back -->
+    <div class="slide" id="slide5">
+        <h1>Wish Me Back, Pookie! 📝😍</h1>
+        <p>Mayank, my sweetest pookie bestie, now it's your turn to make my day! I've poured my heart out on these slides, sharing memories, fun facts, and all the love I have for you. But a friendship like ours is a two-way street, filled with give and take, laughter and support. So, take a moment to write me a birthday wish back—something from the heart, maybe a funny story, a sweet compliment, or even a promise for our next adventure. It could be about how I make you smile, a memory that stands out, or just how much you appreciate our bond. Imagine we're sitting together, sharing a hug and some cake, and you're whispering these words to me. Make it as long or short as you want, but let it be genuine. Your words mean the world to me, and they'll make this birthday even more special. If you're stuck, here's an example: 'Manu, you're the best friend ever—your laughter lights up my life, and I can't wait for more ice cream days!' See? Easy and pookie-perfect. Write from your heart, and let's keep the love flowing! 💌</p>
+        <textarea id="message" placeholder="Your pookie message here... Write as much as you want!"></textarea>
+        <button onclick="sendWish()">Send Love! 💖</button>
+        <p class="wish-result" id="wishResult"></p>
+        <p>Thank you for being you, Mayank. Your friendship is my greatest gift. Happy birthday again—now and forever! 😘❤️</p>
+    </div>
+
+    <!-- Falling Hearts Background -->
+    <div class="hearts" id="hearts"></div>
+
+    <script>
+        // Slide Navigation
+        let currentSlide = 1;
+        const totalSlides = 5;
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById('slide' + n).classList.add('active');
+        }
+        function nextSlide() {
+            currentSlide = (currentSlide % totalSlides) + 1;
+            showSlide(currentSlide);
+        }
+        function prevSlide() {
+            currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
+            showSlide(currentSlide);
+        }
+
+        // Generate Falling Hearts (Improved for Perfect Fall)
+        const heartsContainer = document.getElementById('hearts');
+        const heartEmojis = ['💖', '❤️', '💕', '💗', '💓'];
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + '%'; // Random horizontal position
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's'; // Vary speed (4-7s)
+            heartsContainer.appendChild(heart);
+            // Remove after animation to avoid buildup
+            setTimeout(() => heart.remove(), 7000);
+        }
+        // Start with initial hearts and keep adding
+        for (let i = 0; i < 10; i++) createHeart();
+        setInterval(createHeart, 1000); // Add a new heart every second for continuous fall
+
+        // Quiz Function (Updated with more questions)
+        function checkQuiz() {
+            const a1 = document.getElementById('q1').value.toLowerCase();
+            const a2 = document.getElementById('q2').value.toLowerCase();
+            const a3 = document.getElementById('q3').value.toLowerCase();
+            const a4 = document.getElementById('q4').value.toLowerCase();
+            let score = 0;
+            if (a1 === 'pink') score++;
+            if (a2 === 'eating ice cream' || a2 === 'ice cream') score++;
+            if (a3 === 'a rom-com' || a3.includes('rom') || a3.includes('com')) score++; // Flexible for movie
+            if (a4 === 'flying' || a4 === 'to fly' || a4 === 'super speed') score++; // Example answer
+            document.getElementById('quizResult').textContent = `You got ${score}/4 right! You're a true pookie bestie! 💕 (Answers: Pink, Ice Cream, A Rom-Com, Flying)`;
+        }
+
+        // Wish Function
+        function sendWish() {
+            const msg = document.getElementById('message').value;
+            if (msg.trim()) {
+                document.getElementById('wishResult').textContent = 'Aww, thanks for the pookie wish! I love you too! ❤️ Your message made my day!';
+            } else {
+                document.getElementById('wishResult').textContent = 'Please write something sweet! 😘';
+            }
+        }
+    </script>
+</body>
+</html>
